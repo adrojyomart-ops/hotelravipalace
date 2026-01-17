@@ -1,0 +1,1178 @@
+/* BASIC RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #F8F7F4;
+  color: #2B2B2B;
+}
+
+/* HEADER */
+.site-header {
+  background: #111111;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header h1,
+.main-nav a {
+  color: #fff;
+}
+
+.main-nav a {
+  color: #ffffff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.main-nav a:hover {
+  color: #C9A24D;
+}
+
+/* HERO */
+.hero {
+  height: 95vh;
+  background:
+    linear-gradient(rgba(17,17,17,0.6), rgba(17,17,17,0.6)),
+    url("images/hotel-banner.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  color: #fff;
+}
+
+.hero-actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.hero-btn {
+  background: linear-gradient(135deg, #C9A24D, #A8842C);
+  color: #111111;
+  padding: 14px 34px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(201,162,77,0.4);
+}
+
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  margin-top: 40px;
+}
+
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.feature-box {
+  background: #FAFAFA;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #E6E1D8;
+}
+
+
+/* ROOMS */
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.room {
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.room img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.room-details {
+  padding: 15px;
+}
+
+.available { color: green; font-weight: bold; }
+.soldout { color: red; font-weight: bold; }
+
+/* POPUP */
+.booking-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-box input:focus,
+.popup-box select:focus {
+  border-color: #C9A24D;
+}
+
+
+.popup-box input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.popup-box button {
+  background: linear-gradient(135deg, #25D366, #1EBE5D);
+  color: #fff;
+}
+
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* FLOATING WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  z-index: 9999;
+}
+
+/* FOOTER */
+footer {
+  background: #111111;
+  color: #C9A24D;
+  text-align: center;
+  padding: 18px;
+}
+
+/* ================= PREMIUM HERO BOOKING POPUP ================= */
+
+.booking-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.popup-box {
+  background: #ffffff;
+  width: 92%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 24px 22px 26px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  animation: popupFade 0.35s ease;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popup-box h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: #2c3e50;
+}
+
+.close-popup {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #777;
+}
+
+.popup-box label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+  color: #444;
+}
+
+.popup-box input,
+.popup-box select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
+  background: #fafafa;
+}
+
+.popup-box input:focus,
+.popup-box select:focus {
+  outline: none;
+  border-color: #25d366;
+  background: #fff;
+}
+
+.popup-box button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.popup-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+/* BEST PRICE GUARANTEED BADGE */
+.price-badge {
+  margin: 10px auto 18px;
+  padding: 8px 16px;
+  width: fit-content;
+  background: #eafaf1;
+  color: #1e8449;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1px dashed #25d366;
+  text-align: center;
+}
+/* LOGO IN HEADER */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-wrap img {
+  height: 42px;
+  width: auto;
+}
+
+.logo-wrap span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+/* ================= HERO BANNER ================= */
+
+.hero {
+  height: 85vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("images/tajmahal-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  color: #C9A24D;
+  margin-bottom: 10px;
+}
+
+.hero-content h2 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.hero-info {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-info span {
+  background: rgba(0,0,0,0.6);
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(201,162,77,0.4);
+  font-size: 14px;
+  color: #fff;
+}
+
+/* ================= HERO GALLERY ================= */
+
+.hero-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 30px 6%;
+  background: #111111;
+}
+
+.hero-gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid #C9A24D;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 900px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================= ABOUT US SECTION ================= */
+
+.about-us {
+  line-height: 1.7;
+}
+
+.about-us h2 {
+  font-size: 30px;
+  margin-bottom: 18px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.about-us p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #444;
+}
+
+.about-highlights {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.about-highlights li {
+  background: #FAFAFA;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #E6E1D8;
+  font-size: 15px;
+}
+/* ================= PREMIUM ABOUT US ================= */
+
+.about-premium {
+  background: linear-gradient(
+      rgba(17,17,17,0.85),
+      rgba(17,17,17,0.85)
+    ),
+    url("images/tajmahal-bg.jpg") center/cover no-repeat;
+  padding: 90px 6%;
+  color: #ffffff;
+}
+
+.about-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-tag {
+  display: inline-block;
+  color: #C9A24D;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: #eaeaea;
+}
+
+.about-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.about-points div {
+  background: rgba(0,0,0,0.6);
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(201,162,77,0.4);
+  font-size: 15px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 18px;
+  border: 3px solid #C9A24D;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 30px;
+  }
+
+  .about-image {
+    order: -1;
+  }
+}
+/* ================= ROOMS & PRICING ================= */
+
+.rooms-section {
+  background: #F8F7F4;
+  padding: 90px 6%;
+}
+
+.rooms-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-tag {
+  color: #C9A24D;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.section-heading h2 {
+  font-size: 36px;
+  margin: 14px 0;
+  color: #2c3e50;
+}
+
+.section-heading p {
+  font-size: 16px;
+  color: #555;
+  max-width: 700px;
+  margin: auto;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.room-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+}
+
+.room-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.room-body {
+  padding: 22px;
+}
+
+.room-body h3 {
+  font-size: 22px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.room-desc {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.room-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 18px;
+}
+
+.room-features li {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.room-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #C9A24D;
+}
+
+.room-btn {
+  background: linear-gradient(135deg, #25D366, #1EBE5D);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.room-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37,211,102,0.45);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+  .section-heading h2 {
+    font-size: 28px;
+  }
+}
+/* ================= AMENITIES ================= */
+
+.amenities-section {
+  background: linear-gradient(
+      rgba(17,17,17,0.9),
+      rgba(17,17,17,0.9)
+    ),
+    url("images/hotel-amenities-bg.jpg") center/cover no-repeat;
+  padding: 90px 6%;
+  color: #ffffff;
+}
+
+.amenities-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.amenities-section .section-heading h2 {
+  color: #ffffff;
+}
+
+.amenities-section .section-heading p {
+  color: #dcdcdc;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.amenity-card {
+  background: rgba(0,0,0,0.6);
+  border-radius: 18px;
+  padding: 28px 22px;
+  text-align: center;
+  border: 1px solid rgba(201,162,77,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.amenity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+
+.amenity-card img {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+}
+
+.amenity-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #C9A24D;
+}
+
+.amenity-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e6e6e6;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+  .amenities-section {
+    padding: 70px 6%;
+  }
+
+  .amenities-grid {
+    gap: 20px;
+  }
+}
+/* ================= PHOTO GALLERY (THEME MATCHED) ================= */
+
+.photo-gallery {
+  margin-top: 40px;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.gallery-header h3 {
+  font-size: 26px;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+
+.gallery-header p {
+  font-size: 15px;
+  color: #666;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.gallery-item {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 2px solid #C9A24D;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item img {
+    height: 160px;
+  }
+}
+/* ================= PHOTO GALLERY (MATCHED WITH AMENITIES) ================= */
+
+.photo-gallery-section {
+  background: #ffffff;
+  padding: 90px 6%;
+}
+
+.gallery-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Reuse same heading system */
+.photo-gallery-section .section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.photo-gallery-section .section-tag {
+  color: #C9A24D;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.photo-gallery-section .section-heading h2 {
+  font-size: 36px;
+  margin: 14px 0;
+  color: #2c3e50;
+}
+
+.photo-gallery-section .section-heading p {
+  font-size: 16px;
+  color: #555;
+  max-width: 720px;
+  margin: auto;
+  line-height: 1.6;
+}
+/* ================= WHY CHOOSE US ================= */
+
+.why-choose-section {
+  background: #F8F7F4;
+  padding: 90px 6%;
+}
+
+.why-choose-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.why-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 26px 24px;
+  border: 1px solid #E6E1D8;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+.why-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.why-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .why-choose-section {
+    padding: 70px 6%;
+  }
+}
+
+/* ================= NEARBY ATTRACTIONS (WITH PHOTOS) ================= */
+
+.nearby-section {
+  background: linear-gradient(
+      rgba(17,17,17,0.92),
+      rgba(17,17,17,0.92)
+    ),
+    url("images/tajmahal-bg.jpg") center/cover no-repeat;
+  padding: 90px 6%;
+  color: #ffffff;
+}
+
+.nearby-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.nearby-section .section-heading h2 {
+  color: #ffffff;
+}
+
+.nearby-section .section-heading p {
+  color: #dcdcdc;
+}
+
+/* GRID */
+.nearby-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* CARD */
+.attraction-card {
+  background: rgba(0,0,0,0.65);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(201,162,77,0.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.attraction-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 55px rgba(0,0,0,0.6);
+}
+
+.attraction-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.attraction-content {
+  padding: 18px 20px;
+}
+
+.attraction-content h4 {
+  font-size: 19px;
+  margin-bottom: 8px;
+  color: #C9A24D;
+}
+
+.attraction-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e6e6e6;
+  margin-bottom: 8px;
+}
+
+.attraction-content span {
+  font-size: 13px;
+  color: #bfbfbf;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .attraction-card img {
+    height: 170px;
+  }
+}
+
+
+.nearby-item {
+  background: rgba(0,0,0,0.65);
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(201,162,77,0.35);
+}
+
+.nearby-item h4 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #C9A24D;
+}
+
+.nearby-item p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e6e6e6;
+  margin-bottom: 6px;
+}
+
+.nearby-item span {
+  font-size: 13px;
+  color: #bfbfbf;
+}
+
+/* MAP / IMAGE */
+.nearby-map img {
+  width: 100%;
+  border-radius: 18px;
+  border: 3px solid #C9A24D;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .nearby-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+/* ================= GUEST REVIEWS ================= */
+
+.reviews-section {
+  background: #F8F7F4;
+  padding: 90px 6%;
+}
+
+.reviews-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.review-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 26px 24px;
+  border: 1px solid #E6E1D8;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.review-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+.review-user strong {
+  color: #2c3e50;
+  font-size: 15px;
+}
+
+.review-user span {
+  display: block;
+  font-size: 13px;
+  color: #777;
+}
+
+/* ================= CONTACT & BOOKING ================= */
+
+.contact-section {
+  background: linear-gradient(
+      rgba(17,17,17,0.95),
+      rgba(17,17,17,0.95)
+    ),
+    url("images/tajmahal-bg.jpg") center/cover no-repeat;
+  padding: 90px 6%;
+  color: #ffffff;
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contact-section .section-heading h2 {
+  color: #ffffff;
+}
+
+.contact-section .section-heading p {
+  color: #dcdcdc;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+/* CONTACT INFO */
+.contact-info {
+  background: rgba(0,0,0,0.65);
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(201,162,77,0.35);
+}
+
+.contact-info h4 {
+  color: #C9A24D;
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.contact-info p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  color: #e6e6e6;
+}
+
+/* BOOKING BOX */
+.booking-box {
+  background: rgba(0,0,0,0.65);
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(201,162,77,0.35);
+}
+
+.booking-box h4 {
+  color: #C9A24D;
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.booking-box input,
+.booking-box select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+}
+
+.booking-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.booking-box button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #25D366, #1EBE5D);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.google-reviews-section {
+  padding: 80px 0;
+  background: #0f0f0f;
+}
+
+.reviews-wrapper {
+  max-width: 900px;
+  margin: auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.reviews-wrapper iframe {
+  width: 100%;
+  height: 450px;
+  border: 0;
+  filter: grayscale(10%) contrast(105%);
+}

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Ravi Palace | Comfortable Stay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hotel Ravi Palace offers clean, affordable rooms for families, tourists, and business travelers with easy WhatsApp booking.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a
+  href="https://wa.me/917409649313?text=Hello%20Hotel%20Ravi%20Palace,%0A%0AI%20would%20like%20to%20enquire%20about%20room%20availability.%0A%0APlease%20share%20details%20for:%0A-%20Room%20Type%0A-%20Price%0A-%20Check-in%20%26%20Check-out%20dates.%0A%0AThank%20you."
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat on WhatsApp">
+  💬
+</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+  <img src="images/logo.png" alt="Hotel Ravi Palace Logo">
+  <span>Hotel Ravi Palace</span>
+</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#nearby-attractions">Nearby</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact Us</a>  
+      <a href="tel:+917409649313">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Hotel Ravi Palace</h1>
+      <h2>Comfort Close to the Taj</h2>
+
+      <div class="hero-info">
+        <span>✔ Family & Couple Friendly</span>
+        <span>✔ Clean & Spacious Rooms</span>
+        <span>✔ Prime Location in Agra</span>
+      </div>
+<div class="hero-actions">
+  <a href="javascript:void(0)" class="hero-btn" onclick="openBookingPopup()">
+    Book Now on WhatsApp
+  </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HERO IMAGE GALLERY ================= -->
+<section class="hero-gallery">
+  <img src="images/hotel-mainfront.jpg" alt="Hotel Ravi Palace Front">
+  <img src="images/room-deluxe.jpg" alt="Deluxe Room">
+  <img src="images/room-family.jpg" alt="Family Room">
+  <img src="images/reception.jpg" alt="Hotel Reception">
+</section>
+
+<!-- ================= HERO DATE PICKER POPUP ================= -->
+<div id="bookingPopup" class="booking-popup">
+  <div class="popup-box">
+    <span class="close-popup" onclick="closeBookingPopup()">×</span>
+
+    <h3>Book Your Stay</h3>
+<div class="price-badge">
+  ✔ Best Price Guaranteed
+</div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+  <div>
+    <label>Room Type</label>
+    <select id="heroRoom">
+      <option value="">Room Type</option>
+      <option>Deluxe Room</option>
+      <option>Family Room</option>
+      <option>Suite Room</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Guests</label>
+    <select id="heroGuests">
+      <option value="">Guests</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5+</option>
+    </select>
+  </div>
+</div>
+
+    </select>
+
+    <label>Number of Guests</label>
+    <select id="heroGuests">
+      <option value="">Select Guests</option>
+      <option value="1">1 Guest</option>
+      <option value="2">2 Guests</option>
+      <option value="3">3 Guests</option>
+      <option value="4">4 Guests</option>
+      <option value="5+">5+ Guests</option>
+    </select>
+
+    <label>Check-in Date</label>
+    <input type="date" id="heroCheckin">
+
+    <label>Check-out Date</label>
+    <input type="date" id="heroCheckout">
+
+    <label>Arrival Time</label>
+    <input type="time" id="heroArrival">
+
+    <button onclick="sendHeroWhatsApp()">Continue to WhatsApp</button>
+  </div>
+</div>
+<!-- ================= ABOUT US (PREMIUM) ================= -->
+<section class="about-premium" id="about">
+  <div class="about-inner">
+
+    <div class="about-text">
+      <span class="about-tag">About Our Hotel</span>
+      <h2>Hotel Ravi Palace – Budget Hotel Near Taj Mahal, Agra</h2>
+
+      <p>
+        <strong>Hotel Ravi Palace in Agra</strong> is a trusted
+        <strong>budget hotel near the Taj Mahal</strong>, known for
+        clean rooms, warm hospitality, and affordable pricing.
+        We proudly serve families, couples, tourists, and business travelers
+        seeking a peaceful and safe stay in Agra.
+      </p>
+
+      <p>
+        Located close to major attractions such as
+        <strong>Taj Mahal, Agra Fort, and local markets</strong>,
+        our hotel offers excellent connectivity and convenience.
+        With a focus on hygiene, comfort, and guest satisfaction,
+        we are counted among the <strong>best family hotels in Agra</strong>.
+      </p>
+
+      <div class="about-points">
+        <div>✔ Budget hotel near Taj Mahal</div>
+        <div>✔ Family & couple-friendly rooms</div>
+        <div>✔ Clean, hygienic & spacious stay</div>
+        <div>✔ Easy WhatsApp booking</div>
+        <div>✔ Ideal for tourists & business travelers</div>
+      </div>
+    </div>
+
+    <div class="about-image">
+      <img src="images/hotel-front.jpg" alt="Hotel Ravi Palace Agra">
+    </div>
+
+  </div>
+</section>
+<!-- ================= AMENITIES ================= -->
+<section class="amenities-section" id="amenities">
+  <div class="amenities-inner">
+
+    <div class="section-heading">
+      <span class="section-tag">Hotel Facilities</span>
+      <h2>Amenities at Hotel Ravi Palace, Agra</h2>
+      <p>
+        Enjoy modern facilities and essential comforts designed
+        to make your stay pleasant, safe, and memorable.
+      </p>
+    </div>
+
+    <div class="amenities-grid">
+
+      <div class="amenity-card">
+        <img src="images/icons/wifi.png" alt="Free WiFi Hotel Ravi Palace">
+        <h4>Free Wi-Fi</h4>
+        <p>High-speed internet access in all rooms and common areas.</p>
+      </div>
+
+      <div class="amenity-card">
+        <img src="images/icons/ac.png" alt="Air Conditioned Rooms Agra">
+        <h4>Air Conditioned Rooms</h4>
+        <p>Fully air-conditioned rooms for a comfortable stay.</p>
+      </div>
+
+      <div class="amenity-card">
+        <img src="images/icons/parking.png" alt="Free Parking Hotel Agra">
+        <h4>Free Parking</h4>
+        <p>Safe and secure parking space for guest vehicles.</p>
+      </div>
+
+      <div class="amenity-card">
+        <img src="images/icons/reception.png" alt="24x7 Reception Hotel Ravi Palace">
+        <h4>24×7 Reception</h4>
+        <p>Round-the-clock front desk assistance for guests.</p>
+      </div>
+
+      <div class="amenity-card">
+        <img src="images/icons/room-service.png" alt="Room Service Hotel Ravi Palace">
+        <h4>Room Service</h4>
+        <p>Quick and efficient room service for your convenience.</p>
+      </div>
+
+      <div class="amenity-card">
+        <img src="images/icons/hot-water.png" alt="Hot Water Bathroom Hotel Agra">
+        <h4>Hot & Cold Water</h4>
+        <p>24-hour hot and cold water supply in bathrooms.</p>
+      </div>
+
+      <div class="amenity-card">
+        <img src="images/icons/security.png" alt="Safe Hotel in Agra">
+        <h4>Safe & Secure Stay</h4>
+        <p>CCTV surveillance and a secure hotel environment.</p>
+      </div>
+
+      <div class="amenity-card">
+        <img src="images/icons/housekeeping.png" alt="Clean Rooms Hotel Ravi Palace">
+        <h4>Daily Housekeeping</h4>
+        <p>Clean, hygienic rooms maintained every day.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why-choose-section" id="why-choose-us">
+  <div class="why-choose-inner">
+
+    <div class="section-heading">
+      <span class="section-tag">WHY CHOOSE US</span>
+      <h2>Why Choose Hotel Ravi Palace for Your Stay in Agra</h2>
+      <p>
+        Hotel Ravi Palace offers comfortable rooms, excellent service, and a convenient
+        location near major tourist attractions, making it a preferred hotel in Agra
+        for families, couples, and business travelers.
+      </p>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <h4>Prime Location Near Taj Mahal</h4>
+        <p>
+          Located close to the Taj Mahal, Agra Fort, and railway station,
+          Hotel Ravi Palace is ideal for tourists looking for a hotel near Taj Mahal in Agra.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <h4>Clean & Hygienic Rooms</h4>
+        <p>
+          Our hotel maintains high standards of cleanliness with daily housekeeping,
+          ensuring a safe and hygienic stay for guests.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <h4>Comfortable Rooms with Modern Amenities</h4>
+        <p>
+          Enjoy air-conditioned rooms, attached bathrooms, hot & cold water,
+          free Wi-Fi, and room service for a relaxing stay.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <h4>Family Friendly & Budget Hotel</h4>
+        <p>
+          We provide spacious rooms suitable for families and groups,
+          offering affordable pricing without compromising comfort or quality.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <h4>24x7 Reception & Guest Support</h4>
+        <p>
+          Our front desk team is available round-the-clock to assist guests
+          with check-in, local guidance, and travel support.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <h4>Easy Booking via WhatsApp</h4>
+        <p>
+          Guests can quickly book rooms through WhatsApp for instant confirmation,
+          making Hotel Ravi Palace a convenient choice for travelers.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PHOTO GALLERY ================= -->
+<section class="photo-gallery-section" id="gallery">
+  <div class="gallery-inner">
+
+    <div class="section-heading">
+      <span class="section-tag">PHOTO GALLERY</span>
+      <h2>Photo Gallery of Hotel Ravi Palace, Agra</h2>
+      <p>
+        Explore our hotel rooms, interiors, surroundings, and nearby attractions
+        including Taj Mahal and Agra Fort.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- ===== CLASSIC ROOMS (4) ===== -->
+      <div class="gallery-item">
+        <img src="images/gallery/classic-room-1.jpg" alt="Classic Room with Bathroom at Hotel Ravi Palace">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/classic-room-2.jpg" alt="Classic Room Interior with Attached Bathroom Hotel Ravi Palace">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/classic-room-3.jpg" alt="Classic Double Bed Room with Bathroom Hotel Ravi Palace Agra">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/classic-bathroom.jpg" alt="Bathroom in Classic Room Hotel Ravi Palace">
+      </div>
+
+      <!-- ===== TRIPLE ROOMS (4) ===== -->
+      <div class="gallery-item">
+        <img src="images/gallery/triple-room-1.jpg" alt="Triple Bed Room with Bathroom at Hotel Ravi Palace">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/triple-room-2.jpg" alt="Spacious Triple Room with Attached Bathroom Hotel Ravi Palace">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/triple-room-3.jpg" alt="Family Triple Room Interior Hotel Ravi Palace Agra">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/triple-bathroom.jpg" alt="Bathroom in Triple Room Hotel Ravi Palace">
+      </div>
+
+      <!-- ===== QUAD SUITE ROOMS (4) ===== -->
+      <div class="gallery-item">
+        <img src="images/gallery/quad-suite-1.jpg" alt="Quad Suite Room with Bathroom at Hotel Ravi Palace">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/quad-suite-2.jpg" alt="Luxury Quad Suite Room Interior Hotel Ravi Palace">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/quad-suite-3.jpg" alt="Spacious Quad Family Suite Hotel Ravi Palace Agra">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/quad-suite-bathroom.jpg" alt="Bathroom in Quad Suite Room Hotel Ravi Palace">
+      </div>
+
+      <!-- ===== HOTEL INTERIORS (3) ===== -->
+      <div class="gallery-item">
+        <img src="images/gallery/reception.jpg" alt="Reception Area of Hotel Ravi Palace Agra">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/lift.jpg" alt="Lift Facility at Hotel Ravi Palace Agra">
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gallery/lobby.jpg" alt="Lobby and Waiting Area of Hotel Ravi Palace Agra">
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= NEARBY ATTRACTIONS ================= -->
+<section class="nearby-section" id="nearby-attractions">
+  <div class="nearby-inner">
+
+    <div class="section-heading">
+      <span class="section-tag">NEARBY ATTRACTIONS</span>
+      <h2>Nearby Tourist Attractions from Hotel Ravi Palace, Agra</h2>
+      <p>
+        Hotel Ravi Palace is conveniently located near Agra’s top tourist attractions,
+        making it an ideal stay for sightseeing, family trips, and heritage tours.
+      </p>
+    </div>
+
+    <div class="nearby-cards">
+
+      <!-- Taj Mahal -->
+      <div class="attraction-card">
+        <img src="images/attractions/taj-mahal.jpg" alt="Taj Mahal near Hotel Ravi Palace Agra">
+        <div class="attraction-content">
+          <h4>Taj Mahal</h4>
+          <p>
+            One of the Seven Wonders of the World and a UNESCO World Heritage Site,
+            the Taj Mahal is a must-visit attraction for every Agra traveler.
+          </p>
+          <span>Approx. 1.5 km from Hotel Ravi Palace</span>
+        </div>
+      </div>
+
+      <!-- Agra Fort -->
+      <div class="attraction-card">
+        <img src="images/attractions/agra-fort.jpg" alt="Agra Fort near Hotel Ravi Palace">
+        <div class="attraction-content">
+          <h4>Agra Fort</h4>
+          <p>
+            A historic Mughal fort showcasing royal architecture and rich history,
+            located close to the hotel.
+          </p>
+          <span>Approx. 3 km from Hotel Ravi Palace</span>
+        </div>
+      </div>
+
+      <!-- Mehtab Bagh -->
+      <div class="attraction-card">
+        <img src="images/attractions/mehtab-bagh.jpg" alt="Mehtab Bagh near Hotel Ravi Palace Agra">
+        <div class="attraction-content">
+          <h4>Mehtab Bagh</h4>
+          <p>
+            A beautiful garden complex offering stunning sunset views of the Taj Mahal
+            across the Yamuna River.
+          </p>
+          <span>Approx. 4 km from Hotel Ravi Palace</span>
+        </div>
+      </div>
+
+      <!-- Agra Cantt Railway Station -->
+      <div class="attraction-card">
+        <img src="images/attractions/agra-cantt.jpg" alt="Agra Cantt Railway Station near Hotel Ravi Palace">
+        <div class="attraction-content">
+          <h4>Agra Cantt Railway Station</h4>
+          <p>
+            The main railway station of Agra with direct connectivity to Delhi, Jaipur,
+            and major Indian cities.
+          </p>
+          <span>Approx. 5 km from Hotel Ravi Palace</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= ROOM OVERVIEW ================= -->
+<section class="container">
+  <h3>Our Rooms</h3>
+
+  <div class="rooms">
+    <div class="room">
+      <img src="images/room-deluxe.jpg" alt="Deluxe Room">
+      <div class="room-details">
+        <h4>Deluxe Room</h4>
+        <p>AC | Free Wi-Fi | Comfortable Bed</p>
+        <p class="available">Available</p>
+      </div>
+    </div>
+
+    <div class="room">
+      <img src="images/room-family.jpg" alt="Family Room">
+      <div class="room-details">
+        <h4>Family Room</h4>
+        <p>Spacious | Ideal for Families</p>
+        <p class="available">Available</p>
+      </div>
+    </div>
+
+    <div class="room">
+      <img src="images/room-suite.jpg" alt="Suite Room">
+      <div class="room-details">
+        <h4>Suite Room</h4>
+        <p>Premium | Extra Comfort</p>
+        <p class="soldout">Limited Availability</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= GUEST REVIEWS ================= -->
+<section class="reviews-section" id="reviews">
+  <div class="reviews-inner">
+
+    <div class="section-heading">
+      <span class="section-tag">GUEST REVIEWS</span>
+      <h2>What Our Guests Say About Hotel Ravi Palace</h2>
+      <p>
+        Real guest experiences reflecting comfort, cleanliness, and excellent service
+        at Hotel Ravi Palace, Agra.
+      </p>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <p class="review-text">
+          “Very clean rooms, polite staff, and excellent location near Taj Mahal.
+          Highly recommended for family stay.”
+        </p>
+        <div class="review-user">
+          <strong>Rahul K.</strong>
+          <span>Delhi</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p class="review-text">
+          “Comfortable stay with good facilities. Rooms were hygienic and
+          service was quick.”
+        </p>
+        <div class="review-user">
+          <strong>Priya S.</strong>
+          <span>Jaipur</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p class="review-text">
+          “Budget-friendly hotel near major attractions. Reception staff
+          was very helpful.”
+        </p>
+        <div class="review-user">
+          <strong>Amit V.</strong>
+          <span>Mumbai</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- ================= CONTACT & BOOKING ================= -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+
+    <div class="section-heading">
+      <span class="section-tag">CONTACT & BOOKING</span>
+      <h2>Contact Hotel Ravi Palace & Book Your Stay</h2>
+      <p>
+        Get in touch with Hotel Ravi Palace for room booking, availability,
+        and stay-related inquiries.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- CONTACT DETAILS -->
+      <div class="contact-info">
+        <h4>Hotel Ravi Palace, Agra</h4>
+
+        <p>
+          📞 <strong>Phone:</strong><br>
+          +91 11-6927 0247,
+          +91 74096 49313,
+          +91 99274 49313 ,       
+        </p>
+
+        <p>
+          📧 <strong>Email:</strong><br>
+          hotelravipalaceagra@gmail.com,
+          info@hotelravipalace.in
+        </p>
+
+        <p>
+          📍 <strong>Address:</strong><br>
+          A-7, Taj Nagri, Fatehabad Road, Opp. Hotel Radisson, Near Basai Police Chowki,
+          Agra, Uttar Pradesh, India
+        </p>
+      </div>
+
+      <!-- BOOKING FORM -->
+      <div class="booking-box">
+        <h4>Book Your Stay</h4>
+
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+
+          <div class="booking-row">
+            <input type="date" required>
+            <input type="date" required>
+          </div>
+
+          <select>
+            <option>Guests</option>
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4 Guests</option>
+          </select>
+
+          <button type="submit">Send via WhatsApp</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= LOCATION ================= -->
+<section class="container">
+  <h3>Our Location</h3>
+  <iframe
+    src="https://www.google.com/maps?q=Hotel+Ravi+Palace&output=embed"
+    width="100%"
+    height="300"
+    loading="lazy"
+    style="border:0;">
+  </iframe>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>© 2026 Hotel Ravi Palace | All Rights Reserved</p>
+</footer>
+
+<!-- ================= FINAL SCRIPT ================= -->
+<script>
+function openBookingPopup() {
+  document.getElementById("bookingPopup").style.display = "flex";
+}
+
+function closeBookingPopup() {
+  document.getElementById("bookingPopup").style.display = "none";
+}
+
+function sendHeroWhatsApp() {
+  var today = new Date().toISOString().split("T")[0];
+
+  var room =
+    document.getElementById("heroRoom").value || "____";
+
+  var guests =
+    document.getElementById("heroGuests").value || "____";
+
+  var checkin =
+    document.getElementById("heroCheckin").value || today;
+
+  var checkout =
+    document.getElementById("heroCheckout").value || "____";
+
+  var arrival =
+    document.getElementById("heroArrival").value || "____";
+
+  var message =
+    "Hello Hotel Ravi Palace,\n\n" +
+    "I would like to book a room.\n\n" +
+    "Room Type: " + room + "\n" +
+    "Number of Guests: " + guests + "\n" +
+
+    "Check-in Date: " + checkin + "\n" +
+    "Check-out Date: " + checkout + "\n" +
+    "Arrival Time: " + arrival + "\n\n" +
+    "Please confirm availability and best price.\n\n" +
+    "Thank you.";
+
+  var url =
+    "https://wa.me/917409649313?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+  closeBookingPopup();
+}
+</script>
+
+</body>
+</html>
