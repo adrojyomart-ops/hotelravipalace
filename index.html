@@ -672,8 +672,239 @@ function sendHeroWhatsApp() {
   closeBookingPopup();
 }
 </script>
+<!-- ================= CHATBOT START ================= -->
+
+<!-- FLOATING CHAT BUTTON -->
+<div id="chatbot-btn" onclick="toggleChat()">
+  <div class="online-dot"></div>
+  💬
+  <span>
+    Talk to Us<br>
+    for Booking
+    <small>Online Now</small>
+  </span>
+</div>
+
+<!-- CHAT WINDOW -->
+<div id="chatbot-box">
+  <div id="chatbot-header">
+    Hotel Ravi Palace
+    <span onclick="toggleChat()">✖</span>
+  </div>
+  <div id="chatbot-body">
+    <p id="bot-msg"></p>
+    <div id="bot-buttons"></div>
+  </div>
+</div>
+
+<style>
+#chatbot-btn{
+  position:fixed; bottom:20px; right:20px;
+  background:#8b0000; color:#fff;
+  padding:12px 16px; border-radius:30px;
+  cursor:pointer; display:flex; align-items:center;
+  gap:10px; z-index:9999;
+  animation:pulse 2s infinite;
+}
+#chatbot-btn span{font-size:12px;font-weight:600;line-height:1.2}
+#chatbot-btn small{display:block;font-size:10px;color:#a8ffb0}
+.online-dot{
+  width:10px;height:10px;background:#2ecc71;
+  border-radius:50%;animation:blink 1.2s infinite;
+}
+#chatbot-box{
+  display:none; position:fixed; bottom:95px; right:20px;
+  width:320px; background:#fff; border-radius:12px;
+  box-shadow:0 0 20px rgba(0,0,0,.35);
+  font-family:Arial; z-index:9999;
+}
+#chatbot-header{
+  background:#8b0000;color:#fff;padding:12px;
+  font-weight:bold;display:flex;justify-content:space-between;
+}
+#chatbot-body{padding:12px}
+#chatbot-body button{
+  width:100%;padding:8px;margin:6px 0;
+  border:none;border-radius:6px;
+  background:#f2f2f2;cursor:pointer;font-size:14px;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(139,0,0,.6)}
+  70%{box-shadow:0 0 0 15px rgba(139,0,0,0)}
+  100%{box-shadow:0 0 0 0 rgba(139,0,0,0)}
+}
+@keyframes blink{0%{opacity:1}50%{opacity:.3}100%{opacity:1}}
+</style>
+
+<script>
+let lang="en", dateSel="", guestSel="";
+
+function toggleChat(){
+  const box=document.getElementById("chatbot-box");
+  box.style.display = box.style.display==="block"?"none":"block";
+  if(box.style.display==="block") startChat();
+}
+
+function startChat(){
+  const h=new Date().getHours();
+  const greet=h<12?"Good Morning":"Good Evening";
+  setBot(`${greet}! 🙏<br>Please select language:`,[
+    {t:"English",a:"en"},
+    {t:"हिंदी",a:"hi"}
+  ]);
+}
+
+function setBot(msg,btns){
+  document.getElementById("bot-msg").innerHTML=msg;
+  document.getElementById("bot-buttons").innerHTML=
+    btns.map(b=>`<button onclick="flow('${b.a}')">${b.t}</button>`).join("");
+}
+
+function flow(s){
+
+/* LANGUAGE */
+if(s==="en"){lang="en"; mainMenu()}
+if(s==="hi"){lang="hi"; mainMenu()}
+
+/* PRICE */
+if(s==="price"){
+setBot(
+lang==="en"?
+`Standard Price:<br>Deluxe ₹1,500 | Super Deluxe ₹1,800<br><br>Check today’s offer?`:
+`मानक रेट:<br>डीलक्स ₹1,500 | सुपर डीलक्स ₹1,800<br><br>आज का ऑफर देखें?`,
+[
+{t:"Show Offer",a:"offer"},
+{t:"Is price negotiable?",a:"bargain"}
+])
+}
+
+/* OFFER */
+if(s==="offer"){
+setBot(
+lang==="en"?
+`🎉 Direct Booking Offer:<br>Deluxe ₹1,200 | Super Deluxe ₹1,500`:
+`🎉 डायरेक्ट बुकिंग ऑफर:<br>डीलक्स ₹1,200 | सुपर डीलक्स ₹1,500`,
+[
+{t:"Select Date",a:"date"},
+{t:"WhatsApp Now",a:"wa"}
+])
+}
+
+/* DATE */
+if(s==="date"){
+setBot(lang==="en"?"Select date:":"तारीख चुनें:",[
+{t:"Today",a:"dtoday"},
+{t:"Tomorrow",a:"dtom"},
+{t:"Custom Date",a:"dcustom"}
+])
+}
+if(s==="dtoday"){dateSel="Today"; guestPick()}
+if(s==="dtom"){dateSel="Tomorrow"; guestPick()}
+if(s==="dcustom"){
+  setBot(lang==="en"?"Select check-in date:":"चेक-इन तारीख चुनें:",[]);
+  const i=document.createElement("input");
+  i.type="date"; i.style.width="100%"; i.style.marginTop="10px";
+  i.onchange=function(){dateSel=this.value; guestPick();}
+  document.getElementById("bot-buttons").appendChild(i);
+}
+
+/* GUEST */
+function guestPick(){
+setBot(lang==="en"?"Guests:":"मेहमान:",[
+{t:"1–2",a:"g12"},
+{t:"3–4",a:"g34"},
+{t:"Family",a:"gf"}
+])
+}
+if(s==="g12"){guestSel="1–2"; flow("wa")}
+if(s==="g34"){guestSel="3–4"; flow("wa")}
+if(s==="gf"){guestSel="Family"; flow("wa")}
+
+/* WHATSAPP */
+if(s==="wa"){
+window.open(
+`https://wa.me/917409649313?text=Hello%20Hotel%20Ravi%20Palace%0ADate:%20${dateSel}%0AGuests:%20${guestSel}%0APlease%20share%20best%20price`,
+"_blank")
+}
+
+/* MAP */
+if(s==="map"){
+window.open(
+"https://maps.app.goo.gl/RmEpZCYbQNpifDpb9",
+"_blank")
+}
+
+/* CALL */
+if(s==="call"){
+window.location.href="tel:+917409649313";
+}
+
+/* DIRECTIONS */
+if(s==="direction"){
+setBot(
+lang==="en"?"Choose how you want to reach us:":"आप कैसे आना चाहते हैं?",
+[
+{t:"🚶 Walk Directions",a:"walk"},
+{t:"🚕 Taxi / Auto",a:"taxi"},
+{t:"📍 Open Map",a:"map"},
+{t:"Call Now",a:"call"}
+])
+}
+
+/* WALK */
+if(s==="walk"){
+setBot(
+lang==="en"?
+"From Taj East Gate, walk towards Taj Nagri Road. Hotel Ravi Palace is approx. 500 meters near Basai Police Chowki.":
+"ताज ईस्ट गेट से ताज नगरी रोड की ओर चलें। होटल रवि पैलेस लगभग 500 मीटर दूर है।",
+[
+{t:"Open Map",a:"map"},
+{t:"WhatsApp Booking",a:"wa"}
+])
+}
+
+/* TAXI */
+if(s==="taxi"){
+setBot(
+lang==="en"?
+"Tell driver: Hotel Ravi Palace, Taj Nagri, near Basai Police Chowki, Fatehabad Road.":
+"ड्राइवर को बताएं: होटल रवि पैलेस, ताज नगरी, बसई पुलिस चौकी के पास।",
+[
+{t:"Open Map",a:"map"},
+{t:"Call Hotel",a:"call"},
+{t:"WhatsApp Booking",a:"wa"}
+])
+}
+}
+
+/* MAIN MENU */
+function mainMenu(){
+setBot(
+lang==="en"?"How may I help you?":"मैं आपकी कैसे मदद कर सकता हूँ?",
+[
+{t:"Room Price & Offers",a:"price"},
+{t:"View Location on Map",a:"map"},
+{t:"Get Directions",a:"direction"},
+{t:"Call Now",a:"call"},
+{t:"Book on WhatsApp",a:"wa"}
+])
+}
+
+/* AUTO OPEN ONCE */
+window.addEventListener("load",()=>{
+if(!sessionStorage.getItem("chatOpened")){
+setTimeout(()=>{
+toggleChat();
+sessionStorage.setItem("chatOpened","yes");
+},8000);
+}
+});
+</script>
+
+<!-- ================= CHATBOT END ================= -->
 
 </body>
 </html>
+
 
 
